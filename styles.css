@@ -7,6 +7,12 @@ body {
     background-color: #e0e0e0; /* Light gray background */
 }
 
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .clock {
     position: relative;
     width: 200px;
@@ -15,6 +21,7 @@ body {
     border-radius: 50%;
     background: radial-gradient(circle, #ffffff, #f4f4f4); /* Light gradient background */
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
+    margin-bottom: 20px; /* Space between clock and digital time/date */
 }
 
 .hand {
@@ -97,6 +104,24 @@ body {
     display: none;
 }
 
+.date-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.digital-time {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Dark gray for digital time */
+}
+
+.date {
+    font-size: 16px;
+    color: #666; /* Medium gray for date */
+}
+
 .dark-mode .clock {
     background: radial-gradient(circle, #2c3e50, #34495e); /* Darker gradient for night mode */
 }
@@ -107,4 +132,19 @@ body {
 
 .dark-mode .am, .dark-mode .pm {
     color: #ecf0f1; /* Light color for AM/PM in dark mode */
+}
+
+@media (max-width: 600px) {
+    .clock {
+        width: 150px;
+        height: 150px;
+    }
+
+    .digital-time {
+        font-size: 20px;
+    }
+
+    .date {
+        font-size: 14px;
+    }
 }
