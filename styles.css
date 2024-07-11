@@ -9,8 +9,8 @@ body {
 
 .clock {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     border: 8px solid white;
     border-radius: 50%;
     background-color: black;
@@ -24,4 +24,17 @@ body {
     top: 50%;
     transform-origin: 100%;
     transition: transform 0.5s cubic-bezier(0.4, 2.3, 0.3, 1);
+}
+
+.number {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    transform-origin: center;
+    transform: rotate(calc(var(--i) * 30deg)) translate(120px) rotate(calc(var(--i) * -30deg));
 }
