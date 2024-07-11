@@ -13,6 +13,7 @@ body {
     height: 200px;
     border: 8px solid white;
     border-radius: 50%;
+    background-color: black;
 }
 
 .hand {
@@ -22,5 +23,5 @@ body {
     background-color: white;
     top: 50%;
     transform-origin: 100%;
-    transform: rotate(90deg);
+    transition: transform 0.5s cubic-bezier(0.4, 2.3, 0.3, 1);
 }
