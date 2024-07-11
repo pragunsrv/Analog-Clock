@@ -1,22 +1,17 @@
-function setClock() {
-    const hourHand = document.querySelector('.hour-hand');
-    const minuteHand = document.querySelector('.minute-hand');
-    const secondHand = document.querySelector('.second-hand');
-
+function updateClock() {
     const now = new Date();
-
     const seconds = now.getSeconds();
-    const secondsDegrees = ((seconds / 60) * 360) + 90;
-    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-
     const minutes = now.getMinutes();
-    const minutesDegrees = ((minutes / 60) * 360) + ((seconds / 60) * 6) + 90;
-    minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
-
     const hours = now.getHours();
-    const hoursDegrees = ((hours / 12) * 360) + ((minutes / 60) * 30) + 90;
-    hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+
+    const secondDegrees = (seconds / 60) * 360;
+    const minuteDegrees = (minutes / 60) * 360 + (seconds / 60) * 6;
+    const hourDegrees = (hours % 12) / 12 * 360 + (minutes / 60) * 30;
+
+    document.querySelector('.second-hand').style.transform = `rotate(${secondDegrees}deg)`;
+    document.querySelector('.minute-hand').style.transform = `rotate(${minuteDegrees}deg)`;
+    document.querySelector('.hour-hand').style.transform = `rotate(${hourDegrees}deg)`;
 }
 
-setInterval(setClock, 1000);
-setClock(); // Call immediately to set the initial position of the hands
+setInterval(updateClock, 1000);
+updateClock();  // Initial call to set clock immediately on load
