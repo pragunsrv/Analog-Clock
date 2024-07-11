@@ -29,7 +29,7 @@ function updateClock() {
     digitalTime.textContent = formattedTime;
 
     // Update date
-    const formattedDate = now.toLocaleDateString();
+    const formattedDate = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     dateDisplay.textContent = formattedDate;
 
     // Dynamic styling based on time (e.g., dark mode at night)
@@ -39,6 +39,35 @@ function updateClock() {
         document.body.classList.remove('dark-mode');
     }
 }
+
+function toggleMode() {
+    const digitalTimeContainer = document.querySelector('.digital-time-container');
+    const clock = document.querySelector('.clock');
+    const isDigital = digitalTimeContainer.style.display !== 'none';
+
+    if (isDigital) {
+        digitalTimeContainer.style.display = 'none';
+        clock.style.display = 'block';
+    } else {
+        digitalTimeContainer.style.display = 'block';
+        clock.style.display = 'none';
+    }
+}
+
+function changeBackground() {
+    const backgrounds = ['radial-gradient(circle, #ffffff, #f4f4f4)', 'radial-gradient(circle, #2c3e50, #34495e)', 'linear-gradient(to right, #ff7e5f, #feb47b)'];
+    const currentBackground = document.querySelector('.clock').style.background;
+    let newBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+
+    while (newBackground === currentBackground) {
+        newBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+    }
+
+    document.querySelector('.clock').style.background = newBackground;
+}
+
+document.getElementById('toggle-mode').addEventListener('click', toggleMode);
+document.getElementById('change-background').addEventListener('click', changeBackground);
 
 setInterval(updateClock, 1000);
 updateClock();  // Initial call to set clock immediately on load
