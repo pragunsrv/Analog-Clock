@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analog Clock</title>
+    <title>Enhanced Analog Clock</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="settings">
+    <div class="settings-panel">
         <button id="toggle-mode">Toggle Mode</button>
-        <button id="change-background">Change Background</button>
+        <button id="change-face">Change Clock Face</button>
+        <input type="color" id="color-picker" title="Pick Clock Color">
+        <select id="timezone-select">
+            <option value="-12">UTC-12:00</option>
+            <option value="-11">UTC-11:00</option>
+            <option value="-10">UTC-10:00</option>
+            <!-- Add more timezones as needed -->
+            <option value="0">UTC+00:00</option>
+            <option value="1">UTC+01:00</option>
+            <option value="2">UTC+02:00</option>
+            <option value="9">UTC+09:00</option>
+        </select>
     </div>
     <div class="clock-container">
         <div class="clock">
@@ -17,24 +28,6 @@
             <div class="hand minute-hand"></div>
             <div class="hand second-hand"></div>
             <div class="center-dot"></div>
-            <div class="clock-numbers">
-                <div class="number" style="--i:1;">1</div>
-                <div class="number" style="--i:2;">2</div>
-                <div class="number" style="--i:3;">3</div>
-                <div class="number" style="--i:4;">4</div>
-                <div class="number" style="--i:5;">5</div>
-                <div class="number" style="--i:6;">6</div>
-                <div class="number" style="--i:7;">7</div>
-                <div class="number" style="--i:8;">8</div>
-                <div class="number" style="--i:9;">9</div>
-                <div class="number" style="--i:10;">10</div>
-                <div class="number" style="--i:11;">11</div>
-                <div class="number" style="--i:12;">12</div>
-            </div>
-            <div class="am-pm">
-                <div class="am">AM</div>
-                <div class="pm">PM</div>
-            </div>
         </div>
         <div class="digital-time-container">
             <div class="digital-time">12:00:00</div>
