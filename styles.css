@@ -4,17 +4,17 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #e0e0e0; /* Light gray background */
 }
 
 .clock {
     position: relative;
     width: 200px;
     height: 200px;
-    border: 5px solid #333;
+    border: 6px solid #333; /* Dark gray border */
     border-radius: 50%;
-    background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: radial-gradient(circle, #ffffff, #f4f4f4); /* Light gradient background */
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
 }
 
 .hand {
@@ -22,34 +22,34 @@ body {
     bottom: 50%;
     left: 50%;
     transform-origin: bottom center;
-    background: #333;
-    border-radius: 10px;
+    background: #333; /* Dark gray for hands */
+    border-radius: 6px;
     transition: transform 0.5s ease;
 }
 
 .hour-hand {
-    width: 6px;
+    width: 8px;
     height: 50px;
-    background: #333;
+    background: #555; /* Slightly lighter gray for the hour hand */
 }
 
 .minute-hand {
-    width: 4px;
+    width: 6px;
     height: 70px;
-    background: #666;
+    background: #777; /* Medium gray for the minute hand */
 }
 
 .second-hand {
-    width: 2px;
+    width: 3px;
     height: 90px;
-    background: red;
+    background: #e74c3c; /* Bright red for the second hand */
 }
 
 .center-dot {
     position: absolute;
-    width: 12px;
-    height: 12px;
-    background: #333;
+    width: 14px;
+    height: 14px;
+    background: #333; /* Dark gray for the center dot */
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -70,7 +70,41 @@ body {
     position: absolute;
     font-size: 18px;
     font-weight: bold;
-    color: #333;
-    transform: translate(-50%, -50%);
-    transform: rotate(calc(var(--i) * 30deg)) translateY(-85px);
+    color: #333; /* Dark gray for numbers */
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * 30deg)) translateY(-85px);
+}
+
+.am-pm {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #333; /* Dark gray for AM/PM */
+}
+
+.am, .pm {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+}
+
+.am {
+    display: none;
+}
+
+.pm {
+    display: none;
+}
+
+.dark-mode .clock {
+    background: radial-gradient(circle, #2c3e50, #34495e); /* Darker gradient for night mode */
+}
+
+.dark-mode .number {
+    color: #ecf0f1; /* Light color for numbers in dark mode */
+}
+
+.dark-mode .am, .dark-mode .pm {
+    color: #ecf0f1; /* Light color for AM/PM in dark mode */
 }
