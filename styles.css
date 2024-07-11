@@ -4,8 +4,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #e0e0e0;
-    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ecf0f1, #bdc3c7);
+    font-family: 'Roboto', sans-serif;
 }
 
 .settings-panel {
@@ -15,40 +15,52 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-button, input, select {
+.settings-panel button,
+.settings-panel input,
+.settings-panel select {
     margin: 5px;
     padding: 10px;
     font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #3498db;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
 }
 
-button:hover, input:hover, select:hover {
+.settings-panel button:hover,
+.settings-panel input:hover,
+.settings-panel select:hover {
     background-color: #2980b9;
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .clock-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    perspective: 1000px;
 }
 
 .clock {
     position: relative;
-    width: 250px;
-    height: 250px;
-    border: 8px solid #333;
+    width: 350px;
+    height: 350px;
+    border: 15px solid #333;
     border-radius: 50%;
-    background: radial-gradient(circle, #ffffff, #f4f4f4);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    background: radial-gradient(circle at 20%, #ffffff, #d1d1d1);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
     margin-bottom: 20px;
-    transition: background 0.5s;
+    transition: background 0.5s, border-color 0.5s;
 }
 
 .hand {
@@ -57,80 +69,88 @@ button:hover, input:hover, select:hover {
     left: 50%;
     transform-origin: bottom center;
     background: #333;
-    border-radius: 10px;
-    transition: transform 0.5s ease, background 0.3s;
+    border-radius: 12px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.3s, box-shadow 0.3s;
 }
 
 .hour-hand {
-    width: 8px;
-    height: 60px;
+    width: 14px;
+    height: 100px;
     background: #555;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .minute-hand {
-    width: 6px;
-    height: 80px;
+    width: 10px;
+    height: 140px;
     background: #777;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .second-hand {
-    width: 4px;
-    height: 90px;
+    width: 6px;
+    height: 160px;
     background: #e74c3c;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .center-dot {
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 28px;
+    height: 28px;
     background: #333;
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .digital-time-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .digital-time {
-    font-size: 30px;
+    font-size: 48px;
     font-weight: bold;
     color: #333;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 .date {
-    font-size: 18px;
+    font-size: 24px;
     color: #666;
 }
 
 .dark-mode .clock {
-    background: radial-gradient(circle, #2c3e50, #34495e);
+    background: radial-gradient(circle at 20%, #2c3e50, #34495e);
+    border-color: #ecf0f1;
 }
 
 .dark-mode .hand {
     background: #ecf0f1;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .dark-mode .digital-time {
     color: #ecf0f1;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 600px) {
     .clock {
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: 300px;
     }
 
     .digital-time {
-        font-size: 24px;
+        font-size: 36px;
     }
 
     .date {
-        font-size: 16px;
+        font-size: 20px;
     }
 }
