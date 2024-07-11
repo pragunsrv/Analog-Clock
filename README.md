@@ -1,6 +1,4 @@
-Sure! Here's a `README.md` file for your GitHub repository. It includes a description of the project, installation instructions, features, and usage guidelines:
-
-
+Check Out the Project Live Demo: https://pragunsrv.github.io/Analog-Clock/
 # Enhanced Analog Clock
 
 This project is a visually enhanced analog clock built using HTML, CSS, and JavaScript. It includes features such as a digital time display, customizable clock face, color picker, and timezone selection. The clock supports both light and dark modes for a better user experience.
